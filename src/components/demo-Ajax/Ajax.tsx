@@ -1,4 +1,4 @@
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 
 
 interface ResponseDogApi {
@@ -8,7 +8,7 @@ interface ResponseDogApi {
 
 function DemoAjax(){
    
-    
+
     async function getData() : Promise<ResponseDogApi>{
         const response = await fetch("https://dog.ceo/api/breeds/image/random")
         return await response.json()
