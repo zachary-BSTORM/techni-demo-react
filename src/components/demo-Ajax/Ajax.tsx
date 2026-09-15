@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useActionState, useState } from "react";
 
 
 interface ResponseDogApi {
@@ -7,27 +7,23 @@ interface ResponseDogApi {
 }
 
 function DemoAjax(){
-    const [data , setData] = useState<ResponseDogApi>({status : "" , message: ""})
-
-
-    async function getData(){
+   
+    
+    async function getData() : Promise<ResponseDogApi>{
         const response = await fetch("https://dog.ceo/api/breeds/image/random")
-        const result = await response.json()
-        setData(result)
-        
-        
+        return await response.json()
+
     }
+const [data ,actionGetData,isPending ] = useActionState(getData ,null)
 
     return (
         <>
+        <form action={actionGetData}>
+            <button type="submit" disabled={isPending}> {isPending ? "chargement" : "getData"}</button>
+        </form>
 
-        <button onClick={() => getData()}>GetData</button>
-            {
-                data ? 
-                (<img src={data.message} alt={data.message} width={500} />)
-                :
-                null
-            }
+        {data && <img src={data.message}  alt={data.message} width={150}/>}
+
         </>
     )
 }
