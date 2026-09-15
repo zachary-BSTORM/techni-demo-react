@@ -7,7 +7,7 @@ interface ResponseDogApi {
 }
 
 function DemoAjax(){
-   
+
 
     async function getData() : Promise<ResponseDogApi>{
         const response = await fetch("https://dog.ceo/api/breeds/image/random")

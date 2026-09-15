@@ -14,6 +14,7 @@ import DateOfDay from './components/exo7/DateOfDay';
 import SwitchDateToHorloge from './components/exo8/switchDateHorloge';
 import DemoAjax from './components/demo-Ajax/Ajax';
 import DemoAjax2 from './components/demo-Ajax/Ajax2';
+import ConsomationApi from './components/exo9/consomationApi';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 
   function fQuiSeraDeclencheeParLaModal(response: boolean) {
     console.log(response)
-    if(response) {
+    if (response) {
       // faire qque chose
     }
     else {
@@ -35,10 +36,14 @@ function App() {
 
   const [open, setOpen] = useState(false)
 
+  const [Visibility, setVisibility] = useState<string>("None")
+
+
+
   return <>
     <Composant1 nom='Khun' nom2='Mike' onSend={fQuiSeraDeclencheParUnComposantEnfant} />
     <hr />
-    <Composant1 nom='Alice' nom2='Caroline' onSend={fQuiSeraDeclencheParUnComposantEnfant}/>
+    <Composant1 nom='Alice' nom2='Caroline' onSend={fQuiSeraDeclencheParUnComposantEnfant} />
     <hr />
     <Exo1 />
     <hr />
@@ -50,22 +55,66 @@ function App() {
     <hr />
     <Exo4 />
     <button className='btn btn-danger'
-            onClick={() => setOpen(true)}><i className='bi bi-trash'></i></button>
+      onClick={() => setOpen(true)}><i className='bi bi-trash'></i></button>
     <ConfirmBox onResult={fQuiSeraDeclencheeParLaModal} show={open} title="Etes vous stupide ?" />
-    <TodoContainer/>
     <hr />
-    <ContainerTestEffect/>
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "TodoContainer" ? "None" : "TodoContainer")}>Afficher Todo</button>
+    {Visibility == "TodoContainer" ? (
+      <TodoContainer />
+    ) : null}
     <hr />
-    <Horloge/>
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "ContainerTestEffect" ? "None" : "ContainerTestEffect")}>Afficher Test Effect</button>
+    {Visibility == "ContainerTestEffect" ? (
+      <ContainerTestEffect />
+    ) : null}
     <hr />
-    <DateOfDay/>
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "Horloge" ? "None" : "Horloge")}>Afficher Horloge</button>
+    {Visibility == "Horloge" ? (
+      <Horloge />
+    ) : null}
     <hr />
-    <SwitchDateToHorloge/>
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "DateOfDay" ? "None" : "DateOfDay")}>Afficher Date du jour</button>
+    {Visibility == "DateOfDay" ? (
+      <DateOfDay />
+    ) : null}
     <hr />
-    <DemoAjax/>
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "SwitchDateToHorloge" ? "None" : "SwitchDateToHorloge")}>Afficher Switch Date/Horloge</button>
+    {Visibility == "SwitchDateToHorloge" ? (
+      <SwitchDateToHorloge />
+    ) : null}
     <hr />
-    <DemoAjax2/>
-  </>  
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "DemoAjax" ? "None" : "DemoAjax")}>Afficher Photo de chien</button>
+    {Visibility == "DemoAjax" ? (
+      <DemoAjax />
+    ) : null}
+    <hr />
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "DemoAjax2" ? "None" : "DemoAjax2")}>Afficher Futurama</button>
+    {Visibility == "DemoAjax2" ? (
+      <DemoAjax2 />
+    ) : null}
+    <hr />
+
+
+    <button className='btn btn-outline-dark' onClick={() => setVisibility(Visibility == "PokeApi" ? "None" : "PokeApi")}>Afficher Pokeapi (tyradex)</button>
+    {Visibility == "PokeApi" ? (
+      <ConsomationApi />
+    ) : null}
+
+  </>
 }
 
 export default App
