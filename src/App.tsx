@@ -9,6 +9,11 @@ import Exo2 from './components/exo2/Exo2'
 import Exo4 from './components/exo4/exo4'
 import TodoContainer from './components/exo5/todo-list';
 import ContainerTestEffect from './components/demo-useEffect/demo-useEffect';
+import Horloge from './components/exo6/horloge';
+import DateOfDay from './components/exo7/DateOfDay';
+import SwitchDateToHorloge from './components/exo8/switchDateHorloge';
+import DemoAjax from './components/demo-Ajax/Ajax';
+import DemoAjax2 from './components/demo-Ajax/Ajax2';
 
 
 function App() {
@@ -50,6 +55,16 @@ function App() {
     <TodoContainer/>
     <hr />
     <ContainerTestEffect/>
+    <hr />
+    <Horloge/>
+    <hr />
+    <DateOfDay/>
+    <hr />
+    <SwitchDateToHorloge/>
+    <hr />
+    <DemoAjax/>
+    <hr />
+    <DemoAjax2/>
   </>  
 }
 

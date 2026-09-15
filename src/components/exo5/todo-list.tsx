@@ -52,23 +52,23 @@ function TodoInput({onAddTodo} : {onAddTodo  : (todo : Todo) => void}){
     }
 
     return(
-            <form className="card" onSubmit={submitTodo}>
-                <div>
-                    <label>Nom</label>
-                    <input type="text" value={todo.nom}  onChange={(e) => setTodo({...todo,nom : e.target.value})}/>
+            <form className="card p-4" onSubmit={submitTodo}>
+                <div className="p-2">
+                    <label className="form-label">Nom</label>
+                    <input className="form-control m-auto" type="text" value={todo.nom}  onChange={(e) => setTodo({...todo,nom : e.target.value})}/>
                     {nameError.length > 0 ? (<p style={{color:"red"}}>{nameError}</p>) : null}
                 </div>
-                <div>
-                    <label>Priorité</label>
-                    <select value={todo.priority} onChange={(e) => setTodo({...todo,priority : e.target.value})}>
+                <div className="p-2">
+                    <label className="form-label">Priorité</label>
+                    <select className="form-select" value={todo.priority} onChange={(e) => setTodo({...todo,priority : e.target.value})}>
                         <option value="Basse">Basse</option>
                         <option value="Normal">Normal</option>
                         <option value="Urgent">Urgent</option>
                     </select>
                 </div>
-                <div>
-                    <label>Terminé</label>
-                    <input type="checkbox" checked={todo.complet} onChange={(e) => setTodo({...todo,complet : e.target.checked})}/>
+                <div className="p-2">
+                    <label className="form-label">Terminé</label>
+                    <input className="form-checkbox" type="checkbox" checked={todo.complet} onChange={(e) => setTodo({...todo,complet : e.target.checked})}/>
                 </div>
 
                 <button type="submit">Ajouter</button>

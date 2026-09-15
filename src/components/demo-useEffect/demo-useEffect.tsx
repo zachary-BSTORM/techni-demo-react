@@ -42,8 +42,8 @@ useEffect(() => {
 // },[value])
 
   return (
-          <div>
-            <p>{value}</p>
+          <div className="card p-4 m-auto w-25">
+            <p className="text-center">{value}</p>
             <button onClick={increment}>+</button>
             <button onClick={decrement}>-</button>
           </div>
@@ -58,7 +58,7 @@ function ContainerTestEffect(){
 
         <>
 
-        <div className="card">
+        <div className="card p-3">
             <pre className="card">
 {`
     useEffect(() => {
@@ -77,7 +77,7 @@ function ContainerTestEffect(){
 
     `}
                 </pre>
-          <button onClick={()=> setVisible(v => !v)}>{visible ? "hide" : "show"}</button>
+          <button className="btn btn-outline-dark w-25 m-auto mt-2 mb-2" onClick={()=> setVisible(v => !v)}>{visible ? "hide" : "show"}</button>
 
           {visible ? (
               <TestEffect/>
