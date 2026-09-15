@@ -13,7 +13,7 @@
 
 //     return <>
 //         <form onSubmit={submit}>
-//             <input 
+//             <input
 //                 defaultValue={nom} 
 //                 onChange={e => setNom(e.target.value)} 
 //                 name="nom" />

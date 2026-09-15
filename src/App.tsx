@@ -7,6 +7,8 @@ import ConfirmBox from './components/confirm-box/ConfirmBox'
 import Exo1 from './components/exo1/Exo1'
 import Exo2 from './components/exo2/Exo2'
 import Exo4 from './components/exo4/exo4'
+import TodoContainer from './components/exo5/todo-list';
+import ContainerTestEffect from './components/demo-useEffect/demo-useEffect';
 
 
 function App() {
@@ -45,6 +47,9 @@ function App() {
     <button className='btn btn-danger'
             onClick={() => setOpen(true)}><i className='bi bi-trash'></i></button>
     <ConfirmBox onResult={fQuiSeraDeclencheeParLaModal} show={open} title="Etes vous stupide ?" />
+    <TodoContainer/>
+    <hr />
+    <ContainerTestEffect/>
   </>  
 }
 
